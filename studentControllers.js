@@ -1,6 +1,7 @@
 import studentModel from "../models/Student.js";
 
 class studentController {
+    // create DOcument
     static  createDoc = async (req,res)=>{
         try {
             // const { name,age,fees } = req.body
@@ -16,7 +17,7 @@ class studentController {
             console.log(error)
         }
     }
-
+ // get All document
     static getAllDoc = async (req, res)=>{
         try {
             const result = await studentModel.find()
@@ -26,12 +27,12 @@ class studentController {
             console.log(error)
         }
     }
-
+// get Single Doc
     static getSingleDocById = async (req,res)=>{
        const result = await studentModel.findById(req.params.id)
         res.send(result)
     }
-
+// update Doc
     static updateDocById = async (req,res)=>{
         try {
             const result = await studentModel.findByIdAndUpdate(req.params.id, req.body)//first pmetr shows the url with id and second pmtr with data
@@ -40,7 +41,7 @@ class studentController {
             console.log(error)
         }
     }
-
+// Delete Doc
     static deleteDocById = async (req,res)=>{
         try {
             const result = await studentModel.findByIdAndDelete(req.params.id)
